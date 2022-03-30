@@ -5,7 +5,6 @@ function help()
    echo "BScreen utilities (Backgroud Screen)"
    echo "------------------------------------"
    echo
-   echo
    echo "*Note*: Add 'termcapinfo xterm* ti@:te@' in '.screenrc' for enabling scroll in screen"
    echo
    echo "options:"
