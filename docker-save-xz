@@ -1,0 +1,33 @@
+#!/bin/bash
+
+function help()
+{
+   echo "Docker Save XZ"
+   echo "--------------"
+   echo
+   echo "options:"
+   echo "ARG1     Image Name"
+   echo "ARG2     Compressed output file"
+   echo
+   echo "example: docker-save-xz httpd:2.4 httpd-v2.4"
+   echo
+}
+
+function save () {
+	if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+		help
+	else
+		echo
+		echo "Execute docker save command"
+		echo "---------------------------------"
+		echo "ARG1 - Image Name: $1"
+		echo "ARG2 - Compressed File: $2.tar.xz"
+		echo "---------------------------------"
+		echo
+    	docker save $1 | xz -9e -T 2 -vv -c - > $2.tar.xz
+		xz -tvv $2.tar.xz
+		echo
+	fi
+}
+
+save $1 $2
