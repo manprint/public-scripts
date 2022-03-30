@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function help()
+{
+   echo "BScreen utilities (Backgroud Screen)"
+   echo "------------------------------------"
+   echo
+   echo
+   echo "*Note*: Add 'termcapinfo xterm* ti@:te@' in '.screenrc' for enabling scroll in screen"
+   echo
+   echo "options:"
+   echo "ARG1     Screen name"
+   echo "ARG2     Command to execute inside screen (wrapped in double quote)"
+   echo
+   echo "example: screen ARG1 "\"ARG2"\""
+   echo "example: "bscreen backup "\"sudo tar -I 'xz -9e -v' -cpf mybackup.tar.xz backup-folder\""""
+   echo "example: "bscreen script-sh "\"./script.sh"\"""
+   echo
+}
+
+function bscreen () {
+	if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+		help
+	else
+		echo
+		echo "Execute command in background screen"
+		echo "------------------------------------"
+		echo "ARG1 - Screen name: $1"
+		echo "ARG2 - Command: $2"
+		echo "------------------------------------"
+		echo
+		IGNOREEOF=3 screen -h 1000 -dmS $1 bash -c "$2; exec bash"
+		screen -ls
+		echo
+		echo "Use 'screen -r $1' for attach screen; (CTRL+A)+D for detach"
+		echo "Use 'screen -r $1' for attach and use (CTRL+D) 3 times for terminate screen"
+		echo "Use 'screen -XS $1 quit' for killing the screen session"
+		echo
+	fi
+}
+
+bscreen $1 $2
