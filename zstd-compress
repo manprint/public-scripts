@@ -6,7 +6,7 @@ function help()
    echo "--------------"
    echo
    echo "options:"
-   echo "ARG1     Compressed name file (without .tar.zstd extension)"
+   echo "ARG1     Compressed name file (without .tar.zst extension)"
    echo "ARG2     Folder or file to backup"
    echo
    echo "example: zstd-compress zstd zstd/"
@@ -21,10 +21,10 @@ function save () {
 	else
 		echo
 		echo "Execute Compression ZSTD"
-		echo "---------------------------------"
-		echo "ARG1 - Compressed file output: $1.tar.zstd"
+		echo "-----------------------------------------"
+		echo "ARG1 - Compressed file output: $1.tar.zst"
 		echo "ARG2 - File or folder to compress: $2"
-		echo "---------------------------------"
+		echo "-----------------------------------------"
 		echo
 		tar -I 'zstd --check --progress -v -T0' -cpf $1.tar.zst $2
 		zstd -v --test $1.tar.zst

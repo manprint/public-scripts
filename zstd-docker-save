@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function help()
+{
+   echo "Docker Save XZ"
+   echo "--------------"
+   echo
+   echo "options:"
+   echo "ARG1     Image Name"
+   echo "ARG2     Compressed output file"
+   echo
+   echo "example: zstd-docker-save httpd:2.4 httpd-v2.4"
+   echo
+}
+
+function save () {
+	if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+		help
+	else
+		echo
+		echo "Execute docker save command"
+		echo "----------------------------------"
+		echo "ARG1 - Image Name: $1"
+		echo "ARG2 - Compressed File: $2.tar.zst"
+		echo "----------------------------------"
+		echo
+		docker save $1 | zstd --check --progress -v -T0 -o $2.tar.zst
+		zstd -v --test $2.tar.zst
+		T1=$?
+		tar -tvf $2.tar.zst > /dev/null
+		T2=$?
+		if [ $T1 -eq 0 ] && [ $T2 -eq 0 ]; then
+			echo "EXTCDT1: $T1 - EXTCDT2: $T2"
+			echo "Compression OK"
+		else
+			echo "EXTCDT1: $T1 - EXTCDT2: $T2"
+			echo "Compression KO"
+		fi
+	fi
+}
+
+save $1 $2
