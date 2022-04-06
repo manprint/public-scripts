@@ -1,0 +1,43 @@
+#!/bin/bash
+
+function help()
+{
+   echo "Docker Load ZSTD"
+   echo "----------------"
+   echo
+   echo "options:"
+   echo "ARG1     Compressed ZSTD image name (image.tar.zst)"
+   echo "ARG2     Compressed TAR image name (image.tar)"
+   echo
+   echo "example: zstd-docker-load httpd-v2.4.tar.zst httpd-v2.4.tar"
+   echo
+}
+
+function save () {
+	if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+		help
+	else
+		echo
+		echo "Execute docker load command"
+		echo "---------------------------------------"
+		echo "ARG1 - Compressed File ZSTD: $1"
+		echo "ARG2 - Compressed File TAR: $2"
+		echo "---------------------------------------"
+		echo
+		zstd -v --test $1
+		T1=$?
+		zstd -v -d $1
+		T2=$?
+		docker load < $2
+		rm -vf $2
+		if [ $T1 -eq 0 ] && [ $T2 -eq 0 ]; then
+			echo "EXTCDT1: $T1 - EXTCDT2: $T2"
+			echo "Decompression and load OK"
+		else
+			echo "EXTCDT1: $T1 - EXTCDT2: $T2"
+			echo "Decompression and load KO"
+		fi
+	fi
+}
+
+save $1 $2
