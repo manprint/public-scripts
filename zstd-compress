@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function help()
+{
+   echo "Compress ZSTD"
+   echo "--------------"
+   echo
+   echo "options:"
+   echo "ARG1     Compressed name file (without .tar.zstd extension)"
+   echo "ARG2     Folder or file to backup"
+   echo
+   echo "example: zstd-compress zstd zstd/"
+   echo
+}
+
+function save () {
+	if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+		help
+	else
+		echo
+		echo "Execute Compression ZSTD"
+		echo "---------------------------------"
+		echo "ARG1 - Compressed file output: $1.tar.zstd"
+		echo "ARG2 - File or folder to compress: $2"
+		echo "---------------------------------"
+		echo
+		tar -I 'zstd --ultra -22 --check --progress -v -T0' -cpf $1.tar.zst $2
+		zstd -v --test $1.tar.zst
+		T1=$?
+		tar -tvf $1.tar.zst > /dev/null
+		T2=$?
+		if [ $T1 -eq 0 ] && [ $T2 -eq 0 ]; then
+			echo "EXTCDT1: $T1 - EXTCDT2: $T2"
+			echo "Compression OK"
+		else
+			echo "EXTCDT1: $T1 - EXTCDT2: $T2"
+			echo "Compression KO"
+		fi
+	fi
+}
+
+save $1 $2
