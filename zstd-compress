@@ -10,6 +10,8 @@ function help()
    echo "ARG2     Folder or file to backup"
    echo
    echo "example: zstd-compress zstd zstd/"
+   echo "example command: tar -I 'zstd --ultra -22 --check --progress -v -T4' -cpf zstd.tar.zst zstd/"
+   echo "example command: tar -I 'zstd --check --progress -v -T4' -cpf zstd.tar.zst zstd/"
    echo
 }
 
@@ -24,7 +26,7 @@ function save () {
 		echo "ARG2 - File or folder to compress: $2"
 		echo "---------------------------------"
 		echo
-		tar -I 'zstd --ultra -22 --check --progress -v -T0' -cpf $1.tar.zst $2
+		tar -I 'zstd --check --progress -v -T0' -cpf $1.tar.zst $2
 		zstd -v --test $1.tar.zst
 		T1=$?
 		tar -tvf $1.tar.zst > /dev/null
