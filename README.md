@@ -21,6 +21,13 @@ sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/
 sudo chmod +x /usr/local/bin/zstd-compress
 ```
 
+## zstd-compress-max
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/zstd-compress-max -o /usr/local/bin/zstd-compress-max
+sudo chmod +x /usr/local/bin/zstd-compress-max
+```
+
 ## zstd-docker-load
 
 ```
