@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function find_started_images () {
+	echo "Images with running or stopped container associate:"
+	echo "***************************************************"
+	echo
+	docker ps -a --format {{.Image}}
+	echo
+}
+
+function find_not_running_images() {
+	echo "Images with NO RUNNING container associate:"
+	echo "*******************************************"
+	echo
+	runningImages=$(docker ps -a --format {{.Image}})
+	docker images --format {{.Repository}}:{{.Tag}} | grep -v "$runningImages"
+	echo
+}
+
+function main() {
+	find_started_images
+	find_not_running_images
+}
+
+main

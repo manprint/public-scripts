@@ -41,3 +41,10 @@ sudo chmod +x /usr/local/bin/zstd-docker-load
 sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/zstd-docker-save -o /usr/local/bin/zstd-docker-save
 sudo chmod +x /usr/local/bin/zstd-docker-save
 ```
+
+## find-docker-unused-image
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/find-docker-unused-images -o /usr/local/bin/find-docker-unused-images
+sudo chmod +x /usr/local/bin/find-docker-unused-images
+```
