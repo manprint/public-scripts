@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Allowed choices are 5min, 10min, 1hour, 1day, 1week, 1month, 1year, never.
+
 docker run -i \
 	--rm \
 	--name=sender \
