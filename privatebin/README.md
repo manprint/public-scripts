@@ -1,4 +1,4 @@
-# Privatebin Sender Script
+# Privatebin (privatebin.adiprint.it) Sender Script
 
 ## 1 day
 
