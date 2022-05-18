@@ -1,0 +1,10 @@
+#!/bin/bash
+
+docker run -i \
+	--rm \
+	--name=sender \
+	-e NODE_NO_WARNINGS=1 \
+	-e NODE_TLS_REJECT_UNAUTHORIZED=0 \
+	fabiop85/pbclinode:latest privatebin send \
+		-e 1day \
+		-u https://privatebin.adiprint.it
