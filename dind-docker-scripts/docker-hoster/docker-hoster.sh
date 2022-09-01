@@ -35,6 +35,7 @@ function down() {
 }
 
 function up() {
+	down
 	docker run -dit \
 		--name=docker-hoster \
 		--hostname=docker-hoster.local.it \
