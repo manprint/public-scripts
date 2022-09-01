@@ -40,6 +40,7 @@ function up() {
 		--name=cloud-cmd \
 		--hostname=cloud-cmd.local \
 		--user=1000:1000 \
+		--restart=always \
 		-v /home/ubuntu:/home/ubuntu \
 		-v /:/mnt/fs \
 		-w=/home/ubuntu \
