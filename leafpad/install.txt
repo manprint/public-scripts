@@ -3,3 +3,15 @@ curl -o leafpad.deb -L https://seafile.devopsita85service.ga/f/508aae6a35b04c568
 sudo apt install -y ./leafpad.deb
 
 rm -f ./leafpad.deb
+
+
+------------------------
+
+from github
+-----------
+
+curl -o leafpad -L https://github.com/manprint/public-scripts/raw/master/leafpad/leafpad_0.8.18.1-5_amd64.deb
+
+sudo apt install -y ./leafpad.deb
+
+rm -f ./leafpad.deb
