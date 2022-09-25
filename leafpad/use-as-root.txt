@@ -1,0 +1,5 @@
+https://unix.stackexchange.com/questions/674214/x11-connection-rejected-because-of-wrong-authentication
+
+export XAUTHORITY=$HOME/.Xauthority
+
+export XAUTHORITY=/home/ubuntu/.Xauthority
