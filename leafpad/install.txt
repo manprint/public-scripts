@@ -1,4 +1,4 @@
-curl -o leafpad.deb -L https://seafile.devopsita85service.ga/f/508aae6a35b04c5683c6/?dl=1
+curl -o leafpad.deb -L https://seafile.devopsita85service.ga/f/33ec9fec0d1f43ae81da/?dl=1
 
 sudo apt install -y ./leafpad.deb
 
