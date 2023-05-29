@@ -62,3 +62,10 @@ sudo chmod +x /usr/local/bin/jammy-7z-benchmark
 sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/darkhttpd -o /usr/local/bin/darkhttpd
 sudo chmod +x /usr/local/bin/darkhttpd
 ```
+
+## webdav
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/webdav -o /usr/local/bin/webdav
+sudo chmod +x /usr/local/bin/webdav
+```
