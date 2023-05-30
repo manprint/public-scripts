@@ -68,4 +68,6 @@ sudo chmod +x /usr/local/bin/darkhttpd
 ```
 sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/webdav -o /usr/local/bin/webdav
 sudo chmod +x /usr/local/bin/webdav
+sudo mkdir -vp /etc/webdav 
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/webdav.yml -o /etc/webdav/webdav.yml
 ```
