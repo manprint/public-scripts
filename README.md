@@ -71,3 +71,11 @@ sudo chmod +x /usr/local/bin/webdav
 sudo mkdir -vp /etc/webdav 
 sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/webdav.yml -o /etc/webdav/webdav.yml
 ```
+
+## plik
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/plik -o /usr/local/bin/plik
+sudo chmod +x /usr/local/bin/plik
+sudo curl -sSl https://raw.githubusercontent.com/manprint/public-scripts/master/.plikrc -o .plikrc
+```
