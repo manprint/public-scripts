@@ -1,0 +1,30 @@
+Debug = false
+Quiet = false
+URL = "https://plik.sish.synclabapps.link"
+OneShot = false
+Removable = false
+Stream = false
+Secure = false
+SecureMethod = "openssl"
+Archive = false
+ArchiveMethod = "tar"
+DownloadBinary = "curl"
+Comments = ""
+Login = ""
+Password = ""
+TTL = 0
+ExtendTTL = false
+AutoUpdate = true
+Token = "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+DisableStdin = false
+Insecure = false
+
+[SecureOptions]
+  Cipher = "aes-256-cbc"
+  Openssl = "/usr/bin/openssl"
+  Options = "-md sha256"
+
+[ArchiveOptions]
+  Compress = "gzip"
+  Options = ""
+  Tar = "/bin/tar"

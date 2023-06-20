@@ -55,3 +55,34 @@ sudo chmod +x /usr/local/bin/find-docker-unused-images
 sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/jammy-7z-benchmark.sh -o /usr/local/bin/jammy-7z-benchmark
 sudo chmod +x /usr/local/bin/jammy-7z-benchmark
 ```
+
+## darkhttpd
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/darkhttpd -o /usr/local/bin/darkhttpd
+sudo chmod +x /usr/local/bin/darkhttpd
+```
+
+## webdav
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/webdav -o /usr/local/bin/webdav
+sudo chmod +x /usr/local/bin/webdav
+sudo mkdir -vp /etc/webdav 
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/webdav.yml -o /etc/webdav/webdav.yml
+```
+
+## plik
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/plik -o /usr/local/bin/plik
+sudo chmod +x /usr/local/bin/plik
+sudo curl -sSl https://raw.githubusercontent.com/manprint/public-scripts/master/.plikrc -o .plikrc
+```
+
+## bore (self hosted)
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/bore-0.5.0-443 -o /usr/local/bin/bore
+sudo chmod +x /usr/local/bin/bore
+```
