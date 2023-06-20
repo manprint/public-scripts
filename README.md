@@ -86,3 +86,10 @@ sudo curl -sSl https://raw.githubusercontent.com/manprint/public-scripts/master/
 sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/bore-0.5.0-443 -o /usr/local/bin/bore
 sudo chmod +x /usr/local/bin/bore
 ```
+
+## zc (zcompress)
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/zc -o /usr/local/bin/zc
+sudo chmod +x /usr/local/bin/zc
+```
