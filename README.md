@@ -100,5 +100,5 @@ sudo chmod +x /usr/local/bin/zc
 docker run -it --rm --name fast-cli mschirrmeister/fast-cli:latest fast --upload && docker rmi mschirrmeister/fast-cli:latest
 ```
 ```
-docker run --rm robinmanuelthiel/speedtest:latest
+docker run --rm robinmanuelthiel/speedtest:latest && docker rmi robinmanuelthiel/speedtest:latest
 ```
