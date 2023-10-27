@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# arg0: filename.tar.zst
+# arg1: folder-to-compress
+
+if [ "$#" -eq 0 ] || [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  echo "Usage: $0 filename.tar.zst folder-to-compress"
+  echo "Compresses a folder using zstd compression."
+  echo
+  echo "Arguments:"
+  echo "  filename.tar.zst    Name of the output compressed file (with .tar.zst extension)"
+  echo "  folder-to-compress  Folder to compress"
+  exit 0
+fi
+
+# Check the number of arguments
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 filename.tar.zst folder-to-compress"
+  exit 1
+fi
+
+# Check if the output file name has the correct extension
+if [[ ! $1 == *.tar.zst ]]; then
+  echo "The output file name must have the .tar.zst extension"
+  exit 1
+fi
+
+# Check if the specified folder exists
+if [ ! -d "$2" ]; then
+  echo "The specified folder does not exist"
+  exit 1
+fi
+
+echo "Compress $2..."
+sudo tar -I 'zstd --progress -vv -T0 -B4096 -9' -cpf $1 $2
+echo "Change ownership..."
+sudo chown -v 1000:1000 $1
+echo "Test zstd compressed file..."
+sudo zstd --test $1
+echo "Test extracting to /dev/null"
+sudo tar --same-owner -xOf $1 >/dev/null
+echo "Done!"

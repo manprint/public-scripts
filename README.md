@@ -79,3 +79,26 @@ sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/
 sudo chmod +x /usr/local/bin/plik
 sudo curl -sSl https://raw.githubusercontent.com/manprint/public-scripts/master/.plikrc -o .plikrc
 ```
+
+## bore (self hosted)
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/bore-0.5.0-443 -o /usr/local/bin/bore
+sudo chmod +x /usr/local/bin/bore
+```
+
+## zc (zcompress)
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/manprint/public-scripts/master/zc -o /usr/local/bin/zc
+sudo chmod +x /usr/local/bin/zc
+```
+
+## speedtests
+
+```
+docker run -it --rm --name fast-cli mschirrmeister/fast-cli:latest fast --upload && docker rmi mschirrmeister/fast-cli:latest
+```
+```
+docker run --rm robinmanuelthiel/speedtest:latest && docker rmi robinmanuelthiel/speedtest:latest
+```
